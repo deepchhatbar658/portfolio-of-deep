@@ -14,7 +14,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'Thano Sipsis | Product Designer' },
+      { title: 'Deep Chhatbar | React Native Developer' },
     ],
     links: [{ rel: 'stylesheet', href: appCss }],
   }),
