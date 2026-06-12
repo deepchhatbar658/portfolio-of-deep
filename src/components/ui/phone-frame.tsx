@@ -5,7 +5,7 @@ interface PhoneFrameProps {
 
 export function PhoneFrame({ isVideo }: PhoneFrameProps) {
   return (
-    <div className="relative w-[280px] aspect-[466/960] select-none" aria-hidden="true">
+    <div className="relative w-[200px] sm:w-[240px] md:w-[280px] aspect-[466/960] select-none" aria-hidden="true">
       {/* Screen content — clipped to fit inside the phone's screen area */}
       <div className="absolute inset-x-[4%] inset-y-[2%] rounded-[17px] overflow-hidden bg-gray-100">
         {isVideo ? (

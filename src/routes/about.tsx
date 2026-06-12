@@ -11,7 +11,7 @@ export const Route = createFileRoute('/about')({
 
 function About() {
   return (
-    <main className="min-h-svh flex flex-col items-center px-4 py-16 bg-gray-50">
+    <main className="min-h-svh flex flex-col items-center px-3 sm:px-4 py-10 sm:py-16 bg-gray-50 overflow-x-hidden">
       <PolaroidStrip />
       <AboutHeading />
       <SocialLinks />

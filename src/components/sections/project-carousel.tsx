@@ -73,13 +73,13 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   }, [active?.title, active?.tag])
 
   return (
-    <div className="flex flex-col items-center min-h-svh justify-center py-16">
+    <div className="flex flex-col items-center h-svh justify-center pb-16 sm:pb-20 pt-4 sm:pt-8">
       <div
         ref={containerRef}
         role="region"
         aria-roledescription="carousel"
         aria-label="Project showcase"
-        className="flex overflow-x-auto snap-x snap-mandatory gap-12 px-[calc(50vw-160px)] w-full py-8"
+        className="flex overflow-x-auto snap-x snap-mandatory gap-6 sm:gap-8 md:gap-12 px-[calc(50vw-100px)] sm:px-[calc(50vw-120px)] md:px-[calc(50vw-160px)] w-full py-2 sm:py-4"
       >
         {projects.map((project, i) => (
           <ProjectCard
@@ -90,7 +90,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
         ))}
       </div>
 
-      <div className="text-center mt-8" aria-live="polite" aria-atomic="true">
+      <div className="text-center mt-2 sm:mt-4" aria-live="polite" aria-atomic="true">
         <SectionTitle
           title={displayedTitle}
           subtitle={displayedTag}

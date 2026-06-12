@@ -10,7 +10,7 @@ export function SectionTitle({ title, subtitle, isFading }: SectionTitleProps) {
       className="transition-opacity duration-300 motion-reduce:transition-none"
       style={{ opacity: isFading ? 0 : 1 }}
     >
-      <h2 className="text-3xl font-light text-gray-900">{title}</h2>
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900">{title}</h2>
       <p className="text-sm text-gray-500 mt-1 tracking-wide">{subtitle}</p>
     </div>
   )
