@@ -1,15 +1,24 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { projects } from '../data/projects'
-import { ProjectCarousel } from '../components/sections/project-carousel'
+import { PolaroidStrip } from '../components/sections/polaroid-strip'
+import { AboutHeading } from '../components/sections/about-heading'
+import { SocialLinks } from '../components/sections/social-links'
+import { BioSection } from '../components/sections/bio-section'
+import { CompanyLogos } from '../components/sections/company-logos'
+import { SiteCredit } from '../components/sections/site-credit'
 
 export const Route = createFileRoute('/')({
-  component: Work,
+  component: About,
 })
 
-function Work() {
+function About() {
   return (
-    <main>
-      <ProjectCarousel projects={projects} />
+    <main className="min-h-svh flex flex-col items-center px-3 sm:px-4 py-10 sm:py-16 pb-24 sm:pb-28 bg-gray-50 overflow-x-hidden">
+      <PolaroidStrip />
+      <AboutHeading />
+      <SocialLinks />
+      <BioSection />
+      <CompanyLogos />
+      <SiteCredit />
     </main>
   )
 }
