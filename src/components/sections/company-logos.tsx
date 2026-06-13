@@ -9,7 +9,9 @@ export function CompanyLogos() {
           key={company.name}
           name={company.name}
           svgPaths={company.svg ?? ''}
+          image={company.image}
           text={company.text}
+          href={company.href}
         />
       ))}
     </div>
