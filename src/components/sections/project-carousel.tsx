@@ -52,6 +52,20 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
   const active = projects[activeIndex]
 
+  const activateProject = useCallback((index: number) => {
+    const container = containerRef.current
+    if (!container) return
+
+    const item = container.children[index] as HTMLElement | undefined
+    if (!item) return
+
+    const containerWidth = container.clientWidth
+    const itemWidth = item.offsetWidth
+    const target = item.offsetLeft - (containerWidth - itemWidth) / 2
+
+    container.scrollTo({ left: target, behavior: 'smooth' })
+  }, [])
+
   // Cross-fade title/tag when active project changes
   useEffect(() => {
     if (!active) return
@@ -73,19 +87,20 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   }, [active?.title, active?.tag])
 
   return (
-    <div className="flex flex-col items-center h-svh justify-center pb-16 sm:pb-20 pt-4 sm:pt-8">
+    <div className="flex flex-col items-center h-svh justify-center pb-14 sm:pb-20 pt-3 sm:pt-8">
       <div
         ref={containerRef}
         role="region"
         aria-roledescription="carousel"
         aria-label="Project showcase"
-        className="flex overflow-x-auto snap-x snap-mandatory gap-6 sm:gap-8 md:gap-12 px-[calc(50vw-100px)] sm:px-[calc(50vw-120px)] md:px-[calc(50vw-160px)] w-full py-2 sm:py-4"
+        className="flex overflow-x-auto snap-x snap-mandatory gap-6 sm:gap-8 md:gap-12 px-[calc(50vw-90px)] sm:px-[calc(50vw-110px)] md:px-[calc(50vw-140px)] w-full py-2 sm:py-4"
       >
         {projects.map((project, i) => (
           <ProjectCard
             key={project.id}
             project={project}
             isActive={i === activeIndex}
+            onActivate={() => activateProject(i)}
           />
         ))}
       </div>
@@ -95,6 +110,8 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
           title={displayedTitle}
           subtitle={displayedTag}
           isFading={isFading}
+          icon={active?.icon}
+          accent={active?.accent}
         />
       </div>
     </div>
