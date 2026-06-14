@@ -16,13 +16,12 @@ export const collageImages: string[] = [
 export const socialLinks: SocialLink[] = [
   { href: 'mailto:deepchhatbar658@gmail.com', label: 'Contact', icon: 'mail' },
   {
-    href: 'https://drive.google.com/file/d/1TpqBeJG6rbIWtydfZSrE6Kk8htxBmx7E/view?usp=sharing',
+    href: '/resume',
     label: 'Resume',
     icon: 'resume',
-    external: true,
   },
   {
-    href: 'https://linkedin.com/in/deep-chhatbara07772217',
+    href: 'https://www.linkedin.com/in/deep-chhatbara07772217/',
     label: 'LinkedIn',
     icon: 'linkedin',
     external: true,
