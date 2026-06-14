@@ -18,7 +18,7 @@ const imageLabels = [
 export function Polaroid({ rotate, image, index = 0 }: PolaroidProps) {
   return (
     <div
-      className="bg-white rounded-sm p-1.5 pb-6 sm:p-2 sm:pb-7 md:pb-8 shadow-lg
+      className="bg-white rounded-sm p-1 pb-4 sm:p-1.5 sm:pb-5 md:pb-6 shadow-lg
         transition-all duration-[250ms] ease-out
       motion-reduce:transition-none
       hover:-translate-y-1.5 hover:scale-[1.03]"
@@ -27,7 +27,7 @@ export function Polaroid({ rotate, image, index = 0 }: PolaroidProps) {
       <img
         src={image}
         alt={imageLabels[index] ?? 'Portfolio collage'}
-        className="w-20 h-24 sm:w-28 sm:h-36 md:w-32 md:h-40 rounded-sm bg-gray-50 object-contain p-3"
+        className="w-14 h-16 sm:w-20 sm:h-24 md:w-24 md:h-28 rounded-sm bg-gray-50 object-contain p-2"
         loading="lazy"
         decoding="async"
       />
