@@ -2,7 +2,7 @@
 ### Live weight capture for production floors
 
 ## Overview
-TraknTrac is a React Native field application for industrial batch-processing operations. Floor supervisors use it to track production lots through sequential processing stages, capture crate weights via connected IoT scales, and assign workers by scanning QR badges. It replaces paper-based weight logs and manual data entry in environments where precision and traceability are critical.
+TraknTrac is a React Native field application for industrial batch-processing operations. Floor supervisors use it to track production lots through sequential processing stages, capture item weights via connected IoT scales, and assign workers by scanning QR badges. It replaces paper-based weight logs and manual data entry in environments where precision and traceability are critical.
 
 ## Core Features
 - Scan worker and lot QR codes to assign teams and track batch ownership across shifts.
