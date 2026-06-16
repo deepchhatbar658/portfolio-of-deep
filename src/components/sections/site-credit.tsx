@@ -1,6 +1,6 @@
 export function SiteCredit() {
   return (
-    <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 px-4 text-center text-xs text-gray-400">
+    <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 px-4 text-center text-xs text-gray-600">
       <span>Have made this portfolio site using</span>
       <a
         href="https://tanstack.com/start/latest"

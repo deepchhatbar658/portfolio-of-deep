@@ -3,14 +3,14 @@ import type { SocialLink, Company } from './types'
 export const rotations: number[] = [-6, 4, -3, 5, -2, 6, -4, 3]
 
 export const collageImages: string[] = [
-  '/projectAssets/collage/react.png',
-  '/projectAssets/collage/android.png',
+  '/projectAssets/collage/react.avif',
+  '/projectAssets/collage/android.avif',
   '/projectAssets/collage/expo.svg',
-  '/projectAssets/collage/icons8-nextjs-480.png',
-  '/projectAssets/collage/mongodb.png',
-  '/projectAssets/collage/tanstack.png',
-  '/projectAssets/collage/119793569.png',
-  '/projectAssets/collage/appstore.webp',
+  '/projectAssets/collage/icons8-nextjs-480.avif',
+  '/projectAssets/collage/mongodb.avif',
+  '/projectAssets/collage/tanstack.avif',
+  '/projectAssets/collage/119793569.avif',
+  '/projectAssets/collage/appstore.avif',
 ]
 
 export const socialLinks: SocialLink[] = [
@@ -37,7 +37,7 @@ export const bioParagraphs: string[] = [
 export const companies: Company[] = [
   {
     name: 'Giriraj Digital',
-    image: '/projectAssets/girirajdigital.png',
+    image: '/projectAssets/girirajdigital.avif',
     href: 'https://www.girirajdigital.com/',
   },
   {
@@ -47,7 +47,7 @@ export const companies: Company[] = [
   },
   {
     name: 'Speedbot',
-    image: '/projectAssets/speedbot.png',
+    image: '/projectAssets/speedbot.avif',
     href: 'https://speedbot.tech/',
   },
 ]

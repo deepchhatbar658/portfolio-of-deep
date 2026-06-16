@@ -16,6 +16,7 @@ const imageLabels = [
 ]
 
 export function Polaroid({ rotate, image, index = 0 }: PolaroidProps) {
+  const isFirst = index === 0
   return (
     <div
       className="bg-white rounded-sm p-1 pb-4 sm:p-1.5 sm:pb-5 md:pb-6 shadow-lg
@@ -27,8 +28,11 @@ export function Polaroid({ rotate, image, index = 0 }: PolaroidProps) {
       <img
         src={image}
         alt={imageLabels[index] ?? 'Portfolio collage'}
+        width={112}
+        height={112}
         className="w-14 h-16 sm:w-20 sm:h-24 md:w-24 md:h-28 rounded-sm bg-gray-50 object-contain p-2"
-        loading="lazy"
+        loading={isFirst ? 'eager' : 'lazy'}
+        fetchPriority={isFirst ? 'high' : 'auto'}
         decoding="async"
       />
     </div>

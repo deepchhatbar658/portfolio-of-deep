@@ -14,9 +14,17 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'description',
+        content:
+          'Deep Chhatbar — React Native developer building performant, accessible mobile and web apps. View projects, experience, and get in touch.',
+      },
       { title: 'Deep Chhatbar | React Native Developer' },
     ],
-    links: [{ rel: 'stylesheet', href: appCss }],
+    links: [
+      { rel: 'stylesheet', href: appCss },
+      { rel: 'preload', as: 'image', href: '/projectAssets/collage/react.avif', fetchPriority: 'high' },
+    ],
   }),
   shellComponent: RootDocumentShell,
 })

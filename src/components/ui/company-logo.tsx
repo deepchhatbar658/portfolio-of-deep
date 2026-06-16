@@ -19,6 +19,8 @@ export function CompanyLogo({ name, svgPaths, image, text, href }: CompanyLogoPr
       <img
         src={image}
         alt=""
+        width={24}
+        height={24}
         className="relative z-10 size-6 rounded-full bg-white/70 object-contain ring-1 ring-white/80 drop-shadow-[0_1px_0_rgba(255,255,255,0.8)]"
         loading="lazy"
         decoding="async"
