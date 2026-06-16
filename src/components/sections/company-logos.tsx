@@ -8,7 +8,6 @@ export function CompanyLogos() {
         <CompanyLogo
           key={company.name}
           name={company.name}
-          svgPaths={company.svg ?? ''}
           image={company.image}
           text={company.text}
           href={company.href}

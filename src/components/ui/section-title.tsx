@@ -28,6 +28,8 @@ export function SectionTitle({
               <img
                 src={icon}
                 alt=""
+                width={28}
+                height={28}
                 className="w-4 h-4 sm:w-5 sm:h-5 object-contain"
                 draggable={false}
                 loading="lazy"
@@ -37,6 +39,8 @@ export function SectionTitle({
             <img
               src={icon}
               alt=""
+              width={28}
+              height={28}
               className="w-6 h-6 sm:w-7 sm:h-7 rounded-md shadow-sm shrink-0"
               draggable={false}
               loading="lazy"

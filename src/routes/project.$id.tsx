@@ -1,7 +1,8 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { getProjectDetail } from '../functions/project-detail.functions'
 import { PhoneFrame } from '../components/ui/phone-frame'
-import type { DetailSection } from '../lib/markdown'
+import { DetailSectionBlock } from '../components/ui/detail-section'
+import { SITE_URL } from '../data/site'
 
 export const Route = createFileRoute('/project/$id')({
   loader: async ({ params }) => {
@@ -9,65 +10,48 @@ export const Route = createFileRoute('/project/$id')({
     if (!data.project) throw notFound()
     return data
   },
+  notFoundComponent: ProjectNotFound,
+  head: ({ loaderData }) => {
+    if (!loaderData) return { meta: [{ title: 'Project not found — Deep Chhatbar' }] }
+    const { project, detail } = loaderData
+    const title = `${detail?.title ?? project.title} — Deep Chhatbar`
+    const description = detail?.tagline ?? project.tag
+    const url = `${SITE_URL}/project/${project.id}`
+    const image = project.icon ? `${SITE_URL}${project.icon}` : `${SITE_URL}/og-image.png`
+    return {
+      meta: [
+        { title },
+        { name: 'description', content: description },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description },
+        { property: 'og:url', content: url },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:image', content: image },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: title },
+        { name: 'twitter:description', content: description },
+        { name: 'twitter:image', content: image },
+      ],
+      links: [{ rel: 'canonical', href: url }],
+    }
+  },
   component: ProjectDetail,
 })
 
-/** Renders text with **bold** markers converted to <strong> */
-function MdText({ text }: { text: string }) {
-  const parts = text.split(/(\*\*.*?\*\*)/g)
+function ProjectNotFound() {
   return (
-    <>
-      {parts.map((part, i) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-          return <strong key={i}>{part.slice(2, -2)}</strong>
-        }
-        return <span key={i}>{part}</span>
-      })}
-    </>
-  )
-}
-
-function SectionBlock({ section }: { section: DetailSection }) {
-  return (
-    <section className="mt-12 sm:mt-16">
-      <h2 className="text-xl sm:text-2xl font-light text-neutral-900 mb-4">
-        {section.title}
-      </h2>
-
-      {section.paragraphs.map((p, j) => (
-        <p key={j} className="text-neutral-600 leading-relaxed mb-4">
-          <MdText text={p} />
-        </p>
-      ))}
-
-      {section.items.length > 0 && (
-        <ul className="space-y-3">
-          {section.items.map((item, j) => (
-            <li key={j} className="flex gap-3 text-neutral-600">
-              <span className="text-neutral-300 mt-1 shrink-0 select-none">
-                —
-              </span>
-              <span>
-                <MdText text={item} />
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {section.subSections?.map((sub, j) => (
-        <div key={j} className="mt-8">
-          <h3 className="text-lg font-normal text-neutral-800 mb-3">
-            {sub.title}
-          </h3>
-          {sub.paragraphs.map((p, k) => (
-            <p key={k} className="text-neutral-600 leading-relaxed mb-4">
-              <MdText text={p} />
-            </p>
-          ))}
-        </div>
-      ))}
-    </section>
+    <main className="min-h-svh flex flex-col items-center justify-center px-4 bg-[#f2f2f2]">
+      <h1 className="text-2xl font-light text-neutral-900">Project not found</h1>
+      <p className="mt-2 text-sm text-neutral-500">
+        The project you&apos;re looking for doesn&apos;t exist or has been moved.
+      </p>
+      <Link
+        to="/work"
+        className="mt-6 inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-800 transition-colors"
+      >
+        ← Back to work
+      </Link>
+    </main>
   )
 }
 
@@ -79,7 +63,6 @@ function ProjectDetail() {
   const sections = detail?.sections ?? []
   const status = detail?.status
 
-  // Collect all screenshots (skip duplicates with main image)
   const seen = new Set<string>()
   const screenshots = project.screenshots.filter((s) => {
     if (seen.has(s)) return false
@@ -90,7 +73,6 @@ function ProjectDetail() {
   return (
     <main className="min-h-svh bg-[#f2f2f2] pb-20 sm:pb-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        {/* Back link */}
         <Link
           to="/work"
           className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-800 transition-colors"
@@ -101,6 +83,7 @@ function ProjectDetail() {
             stroke="currentColor"
             strokeWidth={1.5}
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -111,10 +94,9 @@ function ProjectDetail() {
           Work
         </Link>
 
-        {/* Header */}
         <div className="mt-8 sm:mt-12">
-          {project.icon && (
-            project.accent ? (
+          {project.icon &&
+            (project.accent ? (
               <div
                 className="w-12 h-12 rounded-xl mb-4 shadow-sm flex items-center justify-center overflow-hidden"
                 style={{ backgroundColor: project.accent }}
@@ -122,6 +104,8 @@ function ProjectDetail() {
                 <img
                   src={project.icon}
                   alt=""
+                  width={48}
+                  height={48}
                   className="w-8 h-8 object-contain"
                   draggable={false}
                 />
@@ -130,11 +114,12 @@ function ProjectDetail() {
               <img
                 src={project.icon}
                 alt=""
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-xl mb-4 shadow-sm"
                 draggable={false}
               />
-            )
-          )}
+            ))}
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900">
             {displayTitle}
@@ -150,7 +135,6 @@ function ProjectDetail() {
           )}
         </div>
 
-        {/* Screenshots Gallery */}
         {screenshots.length > 0 && (
           <div className="mt-12 sm:mt-16">
             <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 py-2 -mx-4 sm:-mx-6 px-4 sm:px-6">
@@ -163,19 +147,16 @@ function ProjectDetail() {
           </div>
         )}
 
-        {/* Fallback accent preview for projects with no screenshots */}
         {screenshots.length === 0 && project.accent && (
           <div className="mt-12 sm:mt-16 flex justify-center">
             <PhoneFrame accent={project.accent} />
           </div>
         )}
 
-        {/* Markdown Sections */}
         {sections.map((section, i) => (
-          <SectionBlock key={i} section={section} />
+          <DetailSectionBlock key={i} section={section} />
         ))}
 
-        {/* Fallback description when no MD exists */}
         {sections.length === 0 && (
           <section className="mt-12 sm:mt-16">
             <p className="text-neutral-600 leading-relaxed">

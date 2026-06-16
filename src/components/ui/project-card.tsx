@@ -39,7 +39,6 @@ export function ProjectCard({ project, isActive, onActivate }: ProjectCardProps)
       }}
     >
       <PhoneFrame
-        isVideo={project.isVideo}
         image={project.image}
         accent={project.accent}
       />

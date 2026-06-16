@@ -7,10 +7,8 @@ export const projects: Project[] = [
     tag: 'Workforce & Field Service Operations Platform',
     description:
       'A dual-domain mobile app uniting employee self-service (attendance, payroll, leave, expenses) with field service management (service calls, spare parts, stock operations, and technical helpdesk) into a single native experience.',
-    isVideo: false,
     image: '/projectAssets/promptmate/dashboard.png',
     icon: '/projectAssets/promptmate/icon.png',
-    assetFolder: 'promptmate',
     detailMd: 'promptmate.md',
     screenshots: [
       '/projectAssets/promptmate/dashboard.png',
@@ -26,10 +24,8 @@ export const projects: Project[] = [
     tag: 'Live weight capture for production floors',
     description:
       'A React Native field application for industrial batch-processing operations. Floor supervisors track production lots through sequential stages, capture crate weights via connected IoT scales, and assign workers by scanning QR badges.',
-    isVideo: false,
     image: '/projectAssets/trakntrac/startcapturing.png',
     icon: '/projectAssets/trakntrac/icon.png',
-    assetFolder: 'trakntrac',
     detailMd: 'trakntrac.md',
     screenshots: [
       '/projectAssets/trakntrac/startcapturing.png',
@@ -44,17 +40,15 @@ export const projects: Project[] = [
     tag: 'Social Media Posters for Businesses',
     description:
       'A cross-platform mobile app that helps small businesses and brands discover, customize, and share social media posters for festivals, holidays, and brand promotions.',
-    isVideo: false,
-    image: '/projectAssets/quick post/home.png',
-    icon: '/projectAssets/quick post/icon.png',
+    image: '/projectAssets/quick-post/home.png',
+    icon: '/projectAssets/quick-post/icon.png',
     accent: '#6546F2',
-    assetFolder: 'quick post',
     detailMd: 'quickpost.md',
     screenshots: [
-      '/projectAssets/quick post/home.png',
-      '/projectAssets/quick post/bussiness.png',
-      '/projectAssets/quick post/createFrame.png',
-      '/projectAssets/quick post/splash.png',
+      '/projectAssets/quick-post/home.png',
+      '/projectAssets/quick-post/bussiness.png',
+      '/projectAssets/quick-post/createFrame.png',
+      '/projectAssets/quick-post/splash.png',
     ],
   },
   {
@@ -63,10 +57,8 @@ export const projects: Project[] = [
     tag: 'Workforce Attendance Platform',
     description:
       'A React Native mobile application for workforce attendance and HR operations at a large dairy cooperative, designed for rural collection centers with inconsistent network conditions.',
-    isVideo: false,
     image: '/projectAssets/jnkdairy/dashboard.png',
     icon: '/projectAssets/jnkdairy/icon.png',
-    assetFolder: 'jnkdairy',
     detailMd: 'jnk-dairy.md',
     screenshots: [
       '/projectAssets/jnkdairy/dashboard.png',
@@ -81,10 +73,8 @@ export const projects: Project[] = [
     tag: 'Spiritual Content & Commerce Platform',
     description:
       'A React Native mobile app serving a spiritual community with multilingual content (audio discourses, video events, digital books, live streams), community engagement tools, and a full ecommerce flow with donations.',
-    isVideo: false,
     image: '/projectAssets/pushtisanskarDham/dashboard.png',
     icon: '/projectAssets/pushtisanskarDham/icon.png',
-    assetFolder: 'pushtisanskarDham',
     detailMd: 'pushtisanskar.md',
     screenshots: [
       '/projectAssets/pushtisanskarDham/dashboard.png',
@@ -99,10 +89,8 @@ export const projects: Project[] = [
     tag: 'Dual-Role LMS & Operations Platform',
     description:
       'A mobile platform for a Pushtimarg religious-education institution, serving students enrolled in pathshala courses and sanchalaks managing batches, attendance, examinations, and e-commerce.',
-    isVideo: false,
     image: '/projectAssets/pushtisanskarPathshala/mycourse.jpg',
     icon: '/projectAssets/pushtisanskarPathshala/icon.png',
-    assetFolder: 'pushtisanskarPathshala',
     detailMd: 'pushtisanskar-pathshala.md',
     screenshots: [
       '/projectAssets/pushtisanskarPathshala/mycourse.jpg',
@@ -117,10 +105,8 @@ export const projects: Project[] = [
     tag: 'Algorithmic trading & backtesting',
     description:
       'A mobile app for monitoring market data, running algorithmic strategies, and backtesting portfolios against historical market data.',
-    isVideo: false,
     image: '/projectAssets/speedbot/market.webp',
     icon: '/projectAssets/speedbot/icon.webp',
-    assetFolder: 'speedbot',
     screenshots: [
       '/projectAssets/speedbot/market.webp',
       '/projectAssets/speedbot/marketdetail.webp',
@@ -132,11 +118,9 @@ export const projects: Project[] = [
     tag: 'Field-force CRM with live tracking',
     description:
       'A cross-platform mobile CRM for food-distribution field teams managing leads, orders, deliveries, fleet, and expenses, backed by Frappe/ERPNext.',
-    isVideo: false,
     accent: '#e3f2fd',
     icon: '/projectAssets/freshina/icon.png',
-    assetFolder: 'freshina',
-    detailMd: 'nextfood.md',
+    detailMd: 'freshina.md',
     screenshots: [],
   },
 ]

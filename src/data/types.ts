@@ -3,12 +3,9 @@ export interface Project {
   title: string
   tag: string
   description: string
-  isVideo: boolean
-  noNotch?: boolean
   image?: string
   icon?: string
   accent?: string
-  assetFolder: string
   detailMd?: string
   screenshots: string[]
 }
@@ -27,7 +24,6 @@ export interface SocialLink {
 
 export interface Company {
   name: string
-  svg?: string
   image?: string
   text?: string
   href?: string
